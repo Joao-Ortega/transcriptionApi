@@ -21,5 +21,5 @@ export const promptAi: string = `
 	- Se o aluno demonstrar parte do entendimento, marque como “parcial”.
  	- Sua prioridade é avaliar a intenção e pronúncia aproximada, não a escrita literal.
  Responda **somente** com o objeto JSON puro, sem \`\`\`json ou texto adicional.
- { "correto": true | false ,"explicacao": "Retorno de até 100 caracteres, no tom sábio e humano de um mestre de Karatê Uechi Ryu.." }
+ { "correto": true | false | "parcial","explicacao": "Retorno de até 100 caracteres, no tom sábio e humano de um mestre de Karatê Uechi Ryu.." }
 `
