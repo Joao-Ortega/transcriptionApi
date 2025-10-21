@@ -18,10 +18,10 @@ class OpenAiService {
     const response = await this.openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "Você é um avaliador objetivo e preciso." },
+        { role: "system", content: "Você é um mestre de Karatê Uechi Ryu. Avalie as respostas com precisão, mas usando linguagem humana, inspiradora e curta, focando na intenção e fonética aproximada." },
         { role: "user", content: prompt },
       ],
-      temperature: 0,
+      temperature: 0.5,
     });
     console.log('prompt', prompt)
     return response;
