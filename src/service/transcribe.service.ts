@@ -18,12 +18,14 @@ class OpenAiService {
     const response = await this.openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "Você é um mestre de Karatê Uechi Ryu. Avalie as respostas com precisão, mas usando linguagem humana, inspiradora e curta, focando na intenção e fonética aproximada." },
+        { 
+          role: "system", 
+          content: "Você é um mestre de Karatê Uechi Ryu, sábio e flexível. Sua tarefa é avaliar respostas de um quiz, focando na **intenção, som e significado** da resposta do aluno. **IGNORE PLURAL/SINGULAR, gênero e gramática.** Use linguagem humana, inspiradora e curta." 
+        },
         { role: "user", content: prompt },
       ],
-      temperature: 0.5,
+      temperature: 0.8,
     });
-    console.log('prompt', prompt)
     return response;
   }
 
@@ -37,7 +39,6 @@ class OpenAiService {
       fs.unlinkSync(filePath); // apaga o arquivo temporário
       const result = await this.validateAnswer(response.text, answer)
       
-      console.log('result', result.choices[0].message.content)
       return { code: 200, message: JSON.parse(result.choices[0].message.content) }
     } catch (error) {
       console.error("Erro no service:", error);
